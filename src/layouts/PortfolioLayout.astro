@@ -1,0 +1,58 @@
+---
+---
+
+<main class="container">
+  <!-- The Sidebar will be dictated by the posts in the ./posts folder at build,
+  it is at the top as it exists over the
+  rest of the page -->
+  <aside id="sidebar">
+    <!-- Home Page if not on Home Page -->
+    <a href="#" class="sidebar_link">Home</a>
+    <!-- About Page -->
+    <a href="#" class="sidebar_link">About</a>
+    <!-- Technologies used Link -->
+    <a href="#" class="sidebar_link">Technology Used</a>
+    <!-- Accordion of posts -->
+    <!-- Each accordion "key" will use a component -->
+    <!-- At build / dev, I will have sorted each of the posts into their categories -->
+    <h2 id="siderbar_acordion_title">Posts</h2>
+    <section id="sidebar__accordion">
+      <!-- List of posts marked "Projects" via accordion -->
+      <!-- List of posts marked "Releases" via accordion -->
+      <!-- List of posts marked "Bits and Bobs" via accordion -->
+      <!-- If there are posts that do not have a category or have been mislabelled
+      (So if Category is null or not the above) create a dropdown called "Misplaced"
+      with a red background -->
+    </section>
+  </aside>
+
+  <!-- Header BG opacity Starts at 0 and fades in to 1 from the first 100px of height -->
+  <header>
+    <!-- Button to show the sidebar if it is hidden -->
+    <!-- Logo -->
+    <!-- Button to go to github profile -->
+  </header>
+
+  <!-- Here will be the content of the page as dictated by pages / posts -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer is hidden unless the browser has reached the bottom of the page -->
+  <footer>
+    <!-- Social Media Links -->
+    <!-- Copyright -->
+  </footer>
+</main>
+
+<style>
+  /** Style for Portfolio Layout recurring elements */
+</style>
+
+<script>
+  //  Set the background opacity of the header
+
+  //  Set the visablity of the footer
+
+  //  Set the visablity of the sidebar
+</script>
