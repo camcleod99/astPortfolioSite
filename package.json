@@ -10,6 +10,7 @@
     "astro": "astro",
     "docs" : "cp ./docs/*.md ./",
     "git" : "git add . && git commit && git push",
+    "save" : "npm run docs && npm run git",
     "deploy" : "npm run build && npm run docs && npm run git"
   },
   "dependencies": {
