@@ -1,58 +1,94 @@
 ---
 ---
 
-<main class="container">
+<main class="w-full min-h-screen">
   <!-- The Sidebar will be dictated by the posts in the ./posts folder at build,
   it is at the top as it exists over the
   rest of the page -->
-  <aside id="sidebar">
+  <aside id="sidebar" class="h-full fixed top-0 left-0 w-[260px] bg-blue-400 p-10 hidden lg:block">
     <!-- Home Page if not on Home Page -->
-    <a href="#" class="sidebar_link">Home</a>
+    <div class="sidebar_link">
+      <a href="#" class="sidebar_link_href">Home</a>
+    </div>
     <!-- About Page -->
-    <a href="#" class="sidebar_link">About</a>
+    <div class="sidebar_link">
+      <a href="#" class="sidebar_link_href">About</a>
+    </div>
     <!-- Technologies used Link -->
-    <a href="#" class="sidebar_link">Technology Used</a>
+    <div class="sidebar_link">
+      <a href="#" class="sidebar_link_href">Technology Used</a>
+    </div>
     <!-- Accordion of posts -->
     <!-- Each accordion "key" will use a component -->
     <!-- At build / dev, I will have sorted each of the posts into their categories -->
-    <h2 id="siderbar_acordion_title">Posts</h2>
-    <section id="sidebar__accordion">
-      <!-- List of posts marked "Projects" via accordion -->
-      <!-- List of posts marked "Releases" via accordion -->
-      <!-- List of posts marked "Bits and Bobs" via accordion -->
-      <!-- If there are posts that do not have a category or have been mislabelled
-      (So if Category is null or not the above) create a dropdown called "Misplaced"
-      with a red background -->
-    </section>
+    <div id="sidebar_acordion">
+      <h2 id="siderbar_acordion_title">Posts</h2>
+      <section id="sidebar_accordion_loop">
+        <!-- List of posts marked "Projects" via accordion -->
+        <!-- List of posts marked "Releases" via accordion -->
+        <!-- List of posts marked "Bits and Bobs" via accordion -->
+        <!-- If there are posts that do not have a category or have been mislabelled
+        (So if Category is null or not the above) create a dropdown called "Misplaced"
+        with a red background -->
+      </section>
+    </div>
   </aside>
 
-  <!-- Header BG opacity Starts at 0 and fades in to 1 from the first 100px of height -->
-  <header>
-    <!-- Button to show the sidebar if it is hidden -->
-    <!-- Logo -->
-    <!-- Button to go to github profile -->
-  </header>
+  <section id="conent_container" class="pl-0 md:pl-[260px] h-screen flex flex-col">
+    <!-- Header BG opacity Starts at 0 and fades in to 1 from the first 100px of height -->
+    <header class="bg-red-600 p-5 h-16 flex flex-row justify-between">
+      <!-- Button to show the sidebar if it is hidden -->
+      <div class="sidebar_toggle">
+        <button id="sidebarToggle_buton" class="block md:hidden">Toggle Sidebar</button>
+      </div>
+      <!-- Logo -->
+      <div class="logo">
+        <p>logo</p>
+      </div>
+      <!-- Button to go to github profile -->
+      <div class="github_button">
+        <a href="#">Go to Github</a>
+      </div>
+    </header>
 
-  <!-- Here will be the content of the page as dictated by pages / posts -->
-  <main>
-    <slot />
-  </main>
+    <!-- Here will be the content of the page as dictated by pages / posts -->
+    <section id="main_container" class="bg-blue-650 flex-grow p-5">
+      <slot />
+    </section>
 
-  <!-- Footer is hidden unless the browser has reached the bottom of the page -->
-  <footer>
-    <!-- Social Media Links -->
-    <!-- Copyright -->
-  </footer>
+    <!-- Footer is hidden unless the browser has reached the bottom of the page -->
+    <footer class="bg-gray-400 p-5 h-16 flex flex-row justify-between">
+      <!-- LinkedIn Links -->
+      <div class="LinkedIn_Link">
+        <a href="#">LinkedIn</a>
+      </div>
+      <!-- Copyrights -->
+      <div class="logo">
+        <p>logo</p>
+      </div>
+      <!-- Button to go to github source -->
+      <div class="github_button">
+        <a href="#">Go to Github</a>
+      </div>
+    </footer>
+  </section>
 </main>
 
 <style>
-  /** Style for Portfolio Layout recurring elements */
+
 </style>
 
 <script>
   //  Set the background opacity of the header
 
-  //  Set the visablity of the footer
+  //  Set the visibility of the footer
 
-  //  Set the visablity of the sidebar
+  //  Set the visibility of the sidebar
+  const sidebar = document.getElementById('sidebar');
+  const toggleButton = document.getElementById('sidebarToggle');
+  toggleButton.addEventListener('click', () => {
+    // Toggle the 'hidden' class on the sidebar
+    sidebar.classList.toggle('hidden');
+    sidebar.classList.toggle('lg:block');
+  });
 </script>

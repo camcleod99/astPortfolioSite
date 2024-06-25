@@ -2,6 +2,7 @@
 
 ## 1.0.0—Started 2024-06-24
 - [x] Layout
+  - Basic Skeleton 
   - [ ] Scripting
     - [ ] Sidebar
       - [ ] Visibility
@@ -18,10 +19,13 @@
   - [ ] Projects
   - [ ] Releases 
   - [ ] Bits and Bobs
-- [ ] Documentation (Initial Creation)
-  - [ ] README
-  - [ ] ROADMAP
+- [x] Documentation (Initial Creation)
+  - [x] README
+  - [x] ROADMAP
   - [x] LICENSE (Unlicense)
+- [ ] Deployment
+  - [ ] Github Action
+    - [ ] Confirm Build Works and Add Build Badge
 
 ### Timeline
 - 2024-06-24: Initialized project and created GitHub repository
