@@ -1,0 +1,43 @@
+---
+import "./Accordion.css"
+
+interface props{
+  category : string;
+}
+
+const { category } = Astro.props;
+const attributeCategory = category.toLowerCase().replace(/\s/g, "_");
+---
+
+<section id={`sidebar_${attributeCategory}_section`} class="accordion-section">
+  <h2 id={`sidebar_${attributeCategory}_title`} class="accordion-title">{category}</h2>
+  <div class="accordion-list">
+    <hr />
+    <p>Filler Content</p>
+  </div>
+</section>
+
+<script>
+  window.onload = function() {
+    let acc = document.getElementsByClassName("accordion-title");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        // Get all open accordion lists
+        let openAccordions = document.querySelectorAll('.accordion-list.open');
+
+        // Close all open accordion lists
+        for (let j = 0; j < openAccordions.length; j++) {
+          if (openAccordions[j] !== this.nextElementSibling) {
+            openAccordions[j].classList.remove('open');
+          }
+        }
+
+        // Toggle the clicked accordion list
+        let content = this.nextElementSibling;
+        content.classList.toggle("open");
+      });
+    }
+  }
+</script>

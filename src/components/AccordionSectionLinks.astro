@@ -1,0 +1,56 @@
+---
+import "./Accordion.css"
+
+interface link{
+  name: string
+  url : string
+}
+
+interface props{
+  links : link[]
+  title : string
+}
+
+const { links, title } = Astro.props
+const attributeTitle = title.toLowerCase().replace(/\s/g, "_");
+---
+
+<!-- For each link in the links array, create a sidebar_link div with an anchor tag inside -->
+<!-- TODO: Have it so it will ignore the current page link -->
+
+<section id="{`sidebar_$(attributeTitle)_section" class="accordion-section">
+  <h2 id="sidebar_links_title" class="accordion-title">{title}</h2>
+    <div class="accordion-list">
+      <hr/>
+      { links.map((link) => (
+      <div class="sidebar_link">
+        <a href={link.url}>{link.name}</a>
+      </div>
+      ))}
+    </div>
+</section>
+
+<script>
+  window.onload = function() {
+    let acc = document.getElementsByClassName("accordion-title");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        // Get all open accordion lists
+        let openAccordions = document.querySelectorAll('.accordion-list.open');
+
+        // Close all open accordion lists
+        for (let j = 0; j < openAccordions.length; j++) {
+          if (openAccordions[j] !== this.nextElementSibling) {
+            openAccordions[j].classList.remove('open');
+          }
+        }
+
+        // Toggle the clicked accordion list
+        let content = this.nextElementSibling;
+        content.classList.toggle("open");
+      });
+    }
+  }
+</script>

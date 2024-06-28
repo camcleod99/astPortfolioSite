@@ -4,38 +4,30 @@ import Card from '../components/Card.astro';
 import '../global.css'
 ---
 
-<Layout title="Welcome to Astro.">
-	<h1>Hello</h1>
-	<!--<main-->
-	<!--	class="m-auto leading-relaxed text-white text-xl w-[800px] p-[1rem]">-->
-	<!--	<h1>Welcome to <span class="text-gradient">The Webpage</span></h1>-->
-	<!--	<p class="instructions">-->
-	<!--		To get started, open the directory <code>src/pages</code> in your project.<br />-->
-	<!--		<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.-->
-	<!--	</p>-->
-	<!--	<ul role="list" class="link-card-grid">-->
-	<!--		<Card-->
-	<!--			href="https://docs.astro.build/"-->
-	<!--			title="Documentation"-->
-	<!--			body="Learn how Astro works and explore the official API docs."-->
-	<!--		/>-->
-	<!--		<Card-->
-	<!--			href="https://astro.build/integrations/"-->
-	<!--			title="Integrations"-->
-	<!--			body="Supercharge your project with new frameworks and libraries."-->
-	<!--		/>-->
-	<!--		<Card-->
-	<!--			href="https://astro.build/themes/"-->
-	<!--			title="Themes"-->
-	<!--			body="Explore a galaxy of community-built starter themes."-->
-	<!--		/>-->
-	<!--		<Card-->
-	<!--			href="https://astro.build/chat/"-->
-	<!--			title="Community"-->
-	<!--			body="Come say hi to our amazing Discord community. ❤️"-->
-	<!--		/>-->
-	<!--	</ul>-->
-	<!--</main>-->
+<Layout title="Welcome to My Web Portfolio.">
+	<h1> Welcome to my Web Portfolio </h1>
+	<ul class="flex flex-col md:flex-row md:flex-wrap md:grid md:grid-cols-2 gap-2">
+		<Card
+				body="This is a test body"
+				href="https://astro.build"
+				title="Astro"
+			/>
+		<Card
+			body="This is a test body"
+			href="https://astro.build"
+			title="Astro"
+			/>
+		<Card
+			body="This is a test body"
+			href="https://astro.build"
+			title="Astro"
+			/>
+		<Card
+			body="This is a test body"
+			href="https://astro.build"
+			title="Astro"
+			/>
+	</ul>
 </Layout>
 
 <!--<style>-->
