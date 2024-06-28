@@ -6,7 +6,7 @@ interface link{
   url : string
 }
 
-interface props{
+interface Props{
   links : link[]
   title : string
 }
@@ -18,11 +18,11 @@ const attributeTitle = title.toLowerCase().replace(/\s/g, "_");
 <!-- For each link in the links array, create a sidebar_link div with an anchor tag inside -->
 <!-- TODO: Have it so it will ignore the current page link -->
 
-<section id="{`sidebar_$(attributeTitle)_section" class="accordion-section">
+<section id={`sidebar_${attributeTitle}_section`} class="accordion-section">
   <h2 id="sidebar_links_title" class="accordion-title">{title}</h2>
     <div class="accordion-list">
       <hr/>
-      { links.map((link) => (
+      { links.map((link: link) => (
       <div class="sidebar_link">
         <a href={link.url}>{link.name}</a>
       </div>
@@ -36,7 +36,7 @@ const attributeTitle = title.toLowerCase().replace(/\s/g, "_");
     let i;
 
     for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
+      acc[i].addEventListener("click", function(this: HTMLElement) {
         // Get all open accordion lists
         let openAccordions = document.querySelectorAll('.accordion-list.open');
 
@@ -49,7 +49,9 @@ const attributeTitle = title.toLowerCase().replace(/\s/g, "_");
 
         // Toggle the clicked accordion list
         let content = this.nextElementSibling;
-        content.classList.toggle("open");
+        if (content){
+          content.classList.toggle("open");
+        }
       });
     }
   }

@@ -1,7 +1,7 @@
 ---
 import "./Accordion.css"
 
-interface props{
+interface Props{
   category : string;
 }
 
@@ -23,7 +23,7 @@ const attributeCategory = category.toLowerCase().replace(/\s/g, "_");
     let i;
 
     for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
+      acc[i].addEventListener("click", function(this: HTMLElement) {
         // Get all open accordion lists
         let openAccordions = document.querySelectorAll('.accordion-list.open');
 
@@ -34,9 +34,11 @@ const attributeCategory = category.toLowerCase().replace(/\s/g, "_");
           }
         }
 
-        // Toggle the clicked accordion list
+        // Toggle the clicked accordion list if it is not null
         let content = this.nextElementSibling;
-        content.classList.toggle("open");
+        if (content){
+          content.classList.toggle("open");
+        }
       });
     }
   }
