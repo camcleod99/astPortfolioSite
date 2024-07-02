@@ -2,18 +2,21 @@
 import "./Accordion.css"
 
 interface Props{
-  category : string;
+  title : string;
+  posts : any;
 }
 
-const { category } = Astro.props;
-const attributeCategory = category.toLowerCase().replace(/\s/g, "_");
+const { title,posts } = Astro.props;
+const titleAttribute = title.replace(/\s/g, '_');
 ---
 
-<section id={`sidebar_${attributeCategory}_section`} class="accordion-section">
-  <h2 id={`sidebar_${attributeCategory}_title`} class="accordion-title">{category}</h2>
+<section id={`sidebar_${titleAttribute}_section`} class="accordion-section">
+  <h2 id={`sidebar_${titleAttribute}_title`} class="accordion-title">{title}</h2>
   <div class="accordion-list">
     <hr />
-    <p>Filler Content</p>
+      {posts.map(p => (
+        <a href={p.slug}>{p.data.title}</a>
+      ))}
   </div>
 </section>
 

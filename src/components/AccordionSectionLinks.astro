@@ -15,9 +15,6 @@ const { links, title } = Astro.props
 const attributeTitle = title.toLowerCase().replace(/\s/g, "_");
 ---
 
-<!-- For each link in the links array, create a sidebar_link div with an anchor tag inside -->
-<!-- TODO: Have it so it will ignore the current page link -->
-
 <section id={`sidebar_${attributeTitle}_section`} class="accordion-section">
   <h2 id="sidebar_links_title" class="accordion-title">{title}</h2>
     <div class="accordion-list">

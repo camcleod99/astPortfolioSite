@@ -1,5 +1,10 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
+const allBitPosts = await getCollection('Bits');
+const allProPosts = await getCollection('Releases');
+const allRelPosts = await getCollection('Projects');
 import "../global.css";
+
 import AccordionSection from "../components/AccordionSection.astro";
 import AccordionSectionLinks from "../components/AccordionSectionLinks.astro";
 
@@ -7,7 +12,6 @@ interface link{
   name: string
   url : string
 }
-
 const links : link[] = [
   {
     name: "Home",
@@ -29,23 +33,19 @@ const links : link[] = [
 ---
 
 <main class="bg-gray-50">
-  <!-- The Sidebar will be dictated by the posts in the ./posts folder at build,
+  <!-- The Sidebar will be dictated by the content in the ./content folder at build,
   it is at the top as it exists over the
   rest of the page -->
   <aside id="sidebar" class="h-full flex flex-col fixed top-0 left-0 w-[260px] bg-blue-400 p-5 gap-2 hidden md:block">
-    <!-- Logo if Full View -->
-    <div id="sideabar_logo" class="hidden lg:block">
-      <p>logo</p>
-    </div>
     <!-- Home Page if not on Home Page -->
     <div id="sidebar_title">
       <h2 class="text-2xl font-bold italic">Contents</h2>
     </div>
     <div id="sidebar_acordion">
       <AccordionSectionLinks title="Links" links={links} />
-      <AccordionSection category="Projects" />
-      <AccordionSection category="Releases" />
-      <AccordionSection category="Bits" />
+      <AccordionSection title="Projects" posts={allProPosts} />
+      <AccordionSection title="Releases"  posts={allRelPosts} />
+      <AccordionSection title="Bits and Pieces" posts={allBitPosts} />
     </div>
   </aside>
 
@@ -54,16 +54,11 @@ const links : link[] = [
     <header class="bg-red-600 p-5 h-16 flex flex-row justify-between">
       <!-- Logo and Button to show the sidebar if it is hidden -->
       <div class="sidebar_toggle flex flex-row gap-2">
-        <button id="sidebarToggle_buton" class="md:block lg:hidden">Toggle Sidebar</button>
-        <p class="lg:hidden md:block">logo</p>
-      </div>
-      <!-- Button to go to github profile -->
-      <div class="github_button">
-        <a href="#">Go to Github</a>
+        <button id="sidebarToggle_buton">Toggle Sidebar</button>
       </div>
     </header>
 
-    <!-- Here will be the content of the page as dictated by pages / posts -->
+    <!-- Here will be the content of the page as dictated by pages / content -->
     <section id="main_container" class="bg-blue-650 flex-grow p-5">
       <slot />
     </section>
@@ -72,7 +67,7 @@ const links : link[] = [
     <footer class="bg-gray-400 p-5 h-16 flex flex-row justify-between">
       <!-- LinkedIn Links -->
       <div class="LinkedIn_Link">
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/camcleod99/">LinkedIn</a>
       </div>
       <!-- Copyrights -->
       <div class="logo">
@@ -80,7 +75,7 @@ const links : link[] = [
       </div>
       <!-- Button to go to github source -->
       <div class="github_button">
-        <a href="#">Go to Github</a>
+        <a href="https://github.com/camcleod99">Go to Github</a>
       </div>
     </footer>
   </section>
