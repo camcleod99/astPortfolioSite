@@ -1,12 +1,7 @@
 ---
 import "./Accordion.css"
-
-interface Props{
-  title : string;
-  posts : any;
-}
-
 const { title,posts } = Astro.props;
+console.log(posts);
 const titleAttribute = title.replace(/\s/g, '_');
 ---
 
@@ -15,7 +10,7 @@ const titleAttribute = title.replace(/\s/g, '_');
   <div class="accordion-list">
     <hr />
       {posts.map(p => (
-        <a href={p.slug}>{p.data.title}</a>
+        <a href=`/posts/${p.slug}`>{p.data.title}</a>
       ))}
   </div>
 </section>

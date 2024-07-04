@@ -1,3 +1,46 @@
 ---
+const { meta } = Astro.props;
+import Layout from '../Layout.astro'
+---
+<!--<html>-->
+<!--  <head>-->
+<!--    &lt;!&ndash; Add other Head elements here, like styles and meta tags. &ndash;&gt;-->
+<!--    <title>{meta.title}</title>-->
+<!--  </head>-->
+
+<!-- Add other UI components here, like common headers and footers. -->
+<Layout>
+  <header>
+    <h1>{meta.title}</h1>
+    <section id="meta" class="flex flex-row">
+      <p class="meta_field">{meta.version}</p>
+      <p class="meta_field">{meta.status}</p>
+    </section>
+    {meta.tags.length > 0 &&
+      <section id="meta_tags">
+        <ul id="meta_tags_list" class="flex flex-row">
+          {meta.tags.map((tag) => (
+            <li class="tags_list_item">{tag}</li>
+          ))}
+        </ul>
+      </section>
+    }
+  </header>
+  <!-- 2. Rendered HTML will be passed into the default slot. -->
+  <main>
+    <slot />
+  </main>
+</Layout>
+
+<style>
+  #meta_tags_list {
+    list-style: none;
+  }
+  @layer components {
+    .meta_tags > ul > li{
+      @apply  italic size-0.5
+    }
+  }
+</style>---
 
 ---

@@ -1,11 +1,11 @@
 ---
-layout: ../layouts/postLayouts/bitsReleases.astro
-title: Release Title
-Category: Releases
-Tags: [Releases]
-Status: Draft
-Version: 1.0.0
-ReleaseDate: 2021-07-01
+title:          Release Title
+Tags:           [Releases]
+PublishDate:    2021-07-01
+UpdateDate:     2021-07-01
+Version:        1.0
+Category:       Releases
+Status:         Draft
 ---
 
 # Release Title

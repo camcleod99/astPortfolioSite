@@ -1,9 +1,7 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-const allBitPosts = await getCollection('Bits');
-const allProPosts = await getCollection('Releases');
-const allRelPosts = await getCollection('Projects');
-import "../global.css";
+const allBitPosts = Astro.glob('../pages/content/bits/*.md');
+const allProPosts = Astro.glob('../pages/content/projects/*.md');
+const allRelPosts = Astro.glob('../pages/content/releases/*.md');
 
 import AccordionSection from "../components/AccordionSection.astro";
 import AccordionSectionLinks from "../components/AccordionSectionLinks.astro";
@@ -12,6 +10,7 @@ interface link{
   name: string
   url : string
 }
+
 const links : link[] = [
   {
     name: "Home",
@@ -30,6 +29,8 @@ const links : link[] = [
     url: "/tech",
   },
 ];
+
+import "../global.css";
 ---
 
 <main class="bg-gray-50">

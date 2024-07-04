@@ -1,11 +1,10 @@
 ---
-layout: ../layouts/postLayouts/bitsLayout.astro
-title: Article Title
-Category: Bits
-Tags: [Bits]
-Status: Draft
-StartDate: 2021-07-01
-EndDate: 2021-07-01 (or "Ongoing")
+title:          Article Title
+Tags:           [bits]
+PublishDate:    2021-07-01
+UpdateDate:     2021-07-01
+Category:       bits
+Status:         Draft
 ---
 
 [//]: # (The Article Title Will be rendered via props)

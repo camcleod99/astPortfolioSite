@@ -1,13 +1,14 @@
 ---
-layout: ../layouts/postLayouts/bitsReleases.astro
-Category: Releases
-Tags: [Releases]
-Status: Draft
-Version: 1.0.0
-ReleaseDate: 2021-07-01
+title:          Project Title
+Tags:           [Projects]
+PublishDate:    2021-07-01
+UpdateDate:     2021-07-01
+EndDate:        "Ongoing"
+Category:       Projects
+Status:         Draft
 ---
 
-# Release Title
+# Project Title
 
 ## Description
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus ex sit amet lacus rutrum,
